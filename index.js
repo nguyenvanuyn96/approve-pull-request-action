@@ -10,7 +10,8 @@ const main = async () => {
   const octokit = new GitHub(token)
 
   await octokit.pulls.createReview({
-    ...context.repo,
+    owner: context.owner,
+    repo: context.repo,
     pull_number: number,
     event: 'APPROVE'
   })
